@@ -54,7 +54,8 @@ define apparmor::profile(
   }
 
   apparmor_profile{$name:
-    ensure => $ensure,
+    ensure    => $ensure,
+    subscribe => Class['apparmor::service'],
   }
 
 }
