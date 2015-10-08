@@ -37,25 +37,26 @@ define apparmor::profile(
 
   if ($ensure == 'absent') {
     file{$aa_profile_path:
-      ensure => absent,
+      ensure    => absent,
+      subscribe => Class['apparmor::service'],
     }
   }elsif ($source) {
     file{$aa_profile_path:
-      ensure => present,
-      source => $source,
-      before => Apparmor_profile[$name],
+      ensure    => present,
+      source    => $source,
+      before    => Apparmor_profile[$name],
+      subscribe => Class['apparmor::service'],
     }
   }elsif ($template) {
     file{$aa_profile_path:
-      ensure  => present,
-      content => template($template),
-      before => Apparmor_profile[$name],
+      ensure    => present,
+      content   => template($template),
+      before    => Apparmor_profile[$name],
+      subscribe => Class['apparmor::service'],
     }
   }
 
   apparmor_profile{$name:
-    ensure    => $ensure,
-    subscribe => Class['apparmor::service'],
+    ensure => $ensure,
   }
-
 }
