@@ -1,0 +1,16 @@
+{
+  "license": "Apache License, Version 2.0",
+  "dependencies": [
+
+  ],
+  "types": [
+
+  ],
+  "description": "Puppet Module for configuring AppArmor profiles",
+  "source": "https://github.com/artem-sidorenko/puppet-apparmor",
+  "summary": "AppArmo Profile Pupept Module",
+  "name": "sidorenko-apparmor",
+  "author": "Artem Sidorenko",
+  "version": "0.1.0"
+}
+ 
